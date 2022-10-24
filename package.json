@@ -1,0 +1,36 @@
+{
+  "scripts": {
+    "dev": "npm-run-all --parallel server  sass-dev postcss-dev webpack-dev",
+    "build": "npm-run-all --sequential sass-build postcss-build webpack-build",
+    "sass-dev": "sass sass:temp --watch --embed-source-map",
+    "sass-build": "sass sass:temp --embed-source-map --style=compressed",
+    "server": "browser-sync start --server --watch --files '*.html, *.css, js/src/*.js'",
+    "postcss-dev": "postcss temp/*.css --use autoprefixer -d . --map --watch",
+    "postcss-build": "postcss temp/*.css --use autoprefixer -d . --map",
+    "webpack-dev": "webpack --mode=development --watch",
+    "webpack-build": "webpack --mode=production"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "babel-loader": "^8.2.3",
+    "browser-sync": "^2.27.7",
+    "autoprefixer": "^10.4.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.11",
+    "postcss-cli": "^9.0.2",
+    "sass": "^1.55.0",
+    "webpack": "^5.63.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "length.js": "^1.1.1"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ]
+}
